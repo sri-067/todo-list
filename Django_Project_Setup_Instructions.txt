@@ -1,0 +1,83 @@
+
+📘 Django To-Do List Project Setup Instructions
+
+Hi! Follow these steps to run the Django project on your laptop.
+
+———————————————————————————————
+✅ STEP 1: UNZIP THE PROJECT
+———————————————————————————————
+1. Right-click the ZIP file and select "Extract All".
+2. Go inside the extracted folder. You should see files like:
+   - manage.py
+   - requirements.txt
+   - folders: myproject/, todo/, templates/
+
+———————————————————————————————
+✅ STEP 2: INSTALL PYTHON (if not already installed)
+———————————————————————————————
+1. Visit https://www.python.org/downloads/
+2. Download and install Python 3.x
+3. During install, make sure to tick “Add Python to PATH” ✔️
+
+———————————————————————————————
+✅ STEP 3: SETUP VIRTUAL ENVIRONMENT
+———————————————————————————————
+Open a terminal (Command Prompt or PowerShell) in the project folder and run:
+
+    python -m venv venv
+
+Activate it:
+
+- On Windows:
+      venv\Scripts\activate
+
+- On Mac/Linux:
+      source venv/bin/activate
+
+———————————————————————————————
+✅ STEP 4: INSTALL REQUIRED LIBRARIES
+———————————————————————————————
+With virtual environment activated, run:
+
+    pip install -r requirements.txt
+
+This installs Django and other needed packages.
+
+———————————————————————————————
+✅ STEP 5: RUN DATABASE MIGRATIONS
+———————————————————————————————
+Run these commands one by one:
+
+    python manage.py migrate
+
+———————————————————————————————
+✅ STEP 6: CREATE SUPERUSER (admin login)
+———————————————————————————————
+Run this and follow the prompts:
+
+    python manage.py createsuperuser
+
+Choose any username, email, and password you like.
+
+———————————————————————————————
+✅ STEP 7: RUN THE SERVER
+———————————————————————————————
+Start the Django development server:
+
+    python manage.py runserver
+
+Then open this in your browser:
+
+    http://127.0.0.1:8000
+
+———————————————————————————————
+💬 NEED HELP? TIPS FOR TROUBLESHOOTING
+———————————————————————————————
+• If you see "ModuleNotFoundError", make sure you activated the virtual environment.
+• If you're stuck, ask ChatGPT or your friend for help — paste the full error message.
+• You can also recheck each step above, especially steps 3–5.
+
+———————————————————————————————
+🎉 That's it! Your To-Do List project should be running now.
+———————————————————————————————
+

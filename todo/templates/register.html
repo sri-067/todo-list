@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <style>
+        body {
+            font-family: "Segoe UI", sans-serif;
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .register-box {
+            background: white;
+            padding: 35px 40px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            width: 100%;
+            max-width: 450px;
+        }
+        .register-box h2 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        .register-box form p {
+            margin-bottom: 18px;
+        }
+        .register-box label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        .register-box input[type="text"],
+        .register-box input[type="email"],
+        .register-box input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+        .register-box button {
+            width: 100%;
+            background: #007bff;
+            color: white;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        .register-box button:hover {
+            background-color: #0056b3;
+        }
+        .text-center {
+            text-align: center;
+        }
+        .alert {
+            color: #a94442;
+            background-color: #f2dede;
+            border: 1px solid #ebccd1;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+<div class="register-box">
+    <h2>Create an Account</h2>
+
+    {% if form.errors %}
+        <div class="alert">
+            <strong>Please fix the following errors:</strong>
+            <ul>
+                {% for field in form %}
+                    {% for error in field.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                {% endfor %}
+                {% for error in form.non_field_errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+
+    <form method="post">
+        {% csrf_token %}
+        <p>
+            <label for="id_username">Username:</label>
+            {{ form.username }}
+        </p>
+        <p>
+            <label for="id_email">Email:</label>
+            {{ form.email }}
+        </p>
+        <p>
+            <label for="id_password1">Password:</label>
+            {{ form.password1 }}
+        </p>
+        <p>
+            <label for="id_password2">Confirm Password:</label>
+            {{ form.password2 }}
+        </p>
+
+        <p>
+            <input type="checkbox" id="showPassword" onclick="togglePassword()"> 
+            <label for="showPassword">Show Password</label>
+        </p>
+
+        <button type="submit">Register</button>
+    </form>
+
+    <p class="text-center mt-3">
+        Already have an account? <a href="{% url 'login' %}">Login</a>
+    </p>
+</div>
+
+<script>
+function togglePassword() {
+    const pwd1 = document.getElementById("id_password1");
+    const pwd2 = document.getElementById("id_password2");
+    const show = document.getElementById("showPassword").checked;
+
+    pwd1.type = show ? "text" : "password";
+    pwd2.type = show ? "text" : "password";
+}
+</script>
+</body>
+</html>

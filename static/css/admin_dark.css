@@ -1,0 +1,50 @@
+body[data-bs-theme="dark"], html[data-bs-theme="dark"] {
+    background-color: #1e1e1e;
+    color: #f0f0f0;
+}
+
+/* Labels and help text */
+label, .form-row .readonly, .form-row .help, .form-row .description, .field-help, .help {
+    color: #d0d0d0 !important;
+}
+
+/* Inputs and select boxes */
+input, select, textarea {
+    background-color: #2a2a2a !important;
+    color: #f0f0f0 !important;
+    border-color: #444 !important;
+}
+
+/* Fix for readonly fields */
+input[readonly], textarea[readonly] {
+    background-color: #333 !important;
+    color: #ccc !important;
+}
+
+/* Make fieldset legends and other headers visible */
+fieldset.module h2, .module caption, h2, legend {
+    color: #fff !important;
+}
+
+/* Links */
+a {
+    color: #88c9ff;
+}
+
+/* Border fixes */
+fieldset {
+    border-color: #444;
+}
+
+/* Checkbox + radio visibility */
+input[type="checkbox"],
+input[type="radio"] {
+    accent-color: #0d6efd; /* Bootstrap primary */
+}
+
+/* Buttons */
+.button, .button:visited {
+    background-color: #007bff;
+    color: white;
+    border-color: #0056b3;
+}

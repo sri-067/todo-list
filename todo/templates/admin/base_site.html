@@ -1,0 +1,58 @@
+{% extends "admin/base.html" %}
+{% load static %}
+
+{% block title %}{{ site_title|default:_('Django site admin') }}{% endblock %}
+
+{% block extrahead %}
+    {{ block.super }}
+    <style>
+        /* Dark mode base */
+        body.admin-dark {
+            background-color: #121212 !important;
+            color: #ffffff !important;
+        }
+
+        body.admin-dark input,
+        body.admin-dark select,
+        body.admin-dark textarea {
+            background-color: #1e1e1e !important;
+            color: #ffffff !important;
+            border-color: #444 !important;
+        }
+
+        body.admin-dark .form-row label,
+        body.admin-dark .aligned label,
+        body.admin-dark .selector-chosen h2,
+        body.admin-dark .module caption,
+        body.admin-dark .module h2 {
+            color: #ffffff !important;
+        }
+
+        body.admin-dark .module,
+        body.admin-dark .inline-group,
+        body.admin-dark .submit-row,
+        body.admin-dark .breadcrumbs {
+            background-color: #1a1a1a !important;
+            border-color: #333 !important;
+        }
+
+        body.admin-dark a {
+            color: #4ea8ff !important;
+        }
+
+        body.admin-dark .selector,
+        body.admin-dark .selector-chosen {
+            background-color: #1e1e1e !important;
+            color: #ffffff !important;
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const theme = localStorage.getItem('theme');
+            if (theme === 'dark') {
+                document.body.classList.add('admin-dark');
+            }
+        });
+    </script>
+{% endblock %}
