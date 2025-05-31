@@ -3,9 +3,10 @@ services:
     name: todo-list
     runtime: python
     buildCommand: pip install -r requirements.txt
-    startCommand: bash -c "python manage.py migrate && gunicorn myproject.wsgi:application"
+    startCommand: gunicorn myproject.wsgi:application
     envVars:
       - key: DJANGO_SETTINGS_MODULE
         value: myproject.settings
       - key: SECRET_KEY
         generateValue: true
+    postDeploy: "python manage.py migrate"
